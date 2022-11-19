@@ -1,6 +1,6 @@
 # php 7.4 not working yet, see https://tracker.moodle.org/browse/MDL-66260
 FROM php:7.3-fpm
-LABEL MAINTAINER juanda <juandacorreo@gmail.com>
+LABEL MAINTAINER jems <jemalmoh.cloud@gmail.com>
 
 ARG VERSION=4.0.4
 # ARG MOOSH_VERSION=0.36 varible not used, always latest moosh version.
