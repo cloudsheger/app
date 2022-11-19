@@ -6,7 +6,7 @@ echo "Installing apt dependencies"
 
 # Build packages will be added during the build, but will be removed at the end.
 BUILD_PACKAGES="gettext gnupg libcurl4-openssl-dev libfreetype6-dev libicu-dev libjpeg62-turbo-dev \
-  libldap2-dev libmariadbclient-dev libmemcached-dev libpng-dev libpq-dev libxml2-dev libxslt-dev \
+  libldap2-dev libmariadb-dev-compat libmariadb-dev libmemcached-dev libpng-dev libpq-dev libxml2-dev libxslt-dev \
   unixodbc-dev uuid-dev"
 
 # Packages for Postgres.
@@ -16,7 +16,7 @@ PACKAGES_POSTGRES="libpq5"
 PACKAGES_MYMARIA="libmariadb3 mariadb-client"
 
 # Packages for other Moodle runtime dependenices.
-PACKAGES_RUNTIME="ghostscript libaio1 libcurl4 libgss3 libicu63 libmcrypt-dev libxml2 libxslt1.1 \
+PACKAGES_RUNTIME="ghostscript libaio1 libcurl4 libgss3 libicu67 libmcrypt-dev libxml2 libxslt1.1 \
   libzip-dev locales sassc unixodbc unzip zip git sudo"
 
 # Packages for Memcached.
@@ -33,6 +33,11 @@ apt-get install -y --no-install-recommends apt-transport-https \
     $PACKAGES_RUNTIME \
     $PACKAGES_MEMCACHED \
     $PACKAGES_LDAP
+
+#Install libicu63 for debian10. 
+# dpkg -i /tmp/libicu63_63.1-6+deb10u1_amd64.deb
+# apt-get -f install
+
 
 
 # Generate the locales configuration
